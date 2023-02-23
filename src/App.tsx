@@ -21,7 +21,7 @@ const Photo = ({ url }: { url: string }) => {
   const isVisible = useInView(ref);
   return (
     <div
-      className={classnames('opacity-0 transition-opacity', {
+      className={classnames('opacity-0 transition-opacity duration-[400ms]', {
         'opacity-100': isVisible,
       })}
       ref={ref}
