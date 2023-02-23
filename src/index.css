@@ -1,0 +1,140 @@
+@tailwind base;
+
+:root {
+  --background-color-light: rgb(61, 135, 245, 0.1);
+  --background-color: #fff;
+  --background-color-layer: var(--background-color);
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  --selection-background-color: #c2e8ff;
+  --text-color-light: rgba(17, 17, 17, 0.2);
+  --text-color: #111;
+
+  --scrollbar-background: transparent;
+  font-family: Johto, sans-serif;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --toc-width: var(--toc-max-width);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color-light: rgb(73, 128, 209, 0.1);
+    --background-color: rgb(20, 20, 20);
+    --background-color-layer: rgb(38 38 38);
+    --box-shadow: rgba(255, 255, 255, 0.05);
+    --selection-background-color: #3d87f560;
+    --text-color-light: rgba(230, 230, 230, 0.2);
+    --text-color: rgb(230, 230, 230);
+  }
+}
+
+body {
+  background-color: var(--background-color);
+
+  color: var(--text-color);
+}
+
+::selection {
+  background-color: var(--selection-background-color);
+}
+
+a {
+  text-decoration: underline;
+}
+
+a {
+  @apply text-pink-500 dark:text-pink-400;
+  text-decoration-color: rgb(244, 114, 182);
+}
+
+a:hover {
+  @apply text-pink-500 dark:text-pink-400;
+}
+
+a.no-underline {
+  text-decoration: none;
+}
+
+.logo {
+  zoom: 2;
+}
+
+@media (min-width: 640px) {
+  .logo {
+    zoom: 2.5;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    zoom: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    zoom: 3.5;
+  }
+}
+
+a:hover,
+.footer a {
+  text-decoration: none;
+}
+
+hr {
+  border-color: var(--text-color-light);
+}
+
+.colorful {
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #e148a2, #ec4899, #de9900);
+  box-decoration-break: clone;
+}
+
+.colorful::selection {
+  -webkit-text-fill-color: #fff;
+}
+
+button:hover {
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+input,
+textarea,
+button {
+  box-shadow: -2px 0 0 0 #e2e2e2, 2px 0 0 0 #e2e2e2, 0 -2px 0 0 #e2e2e2,
+    0 2px 0 0 #e2e2e2;
+  -webkit-appearance: none;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  box-shadow: -2px 0 0 0 rgb(244, 114, 182), 2px 0 0 0 rgb(244, 114, 182),
+    0 -2px 0 0 rgb(244, 114, 182), 0 2px 0 0 rgb(244, 114, 182);
+}
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write you own custom component styles here */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
